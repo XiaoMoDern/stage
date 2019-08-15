@@ -23,7 +23,10 @@
 
         // 创建script标签并发起jsonp请求
         let script = document.createElement('script');
-        script.src = 'http://localhost:1906/jsop';
+        script.src = 'http://localhost:1906/jsonp?callback=getData';
+
+        //把script标签插入body
+        document.body.appendChild(script);
     </script>
 </body>
 

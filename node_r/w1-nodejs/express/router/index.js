@@ -7,6 +7,8 @@ let Router = express.Router();
 // 引入其他接口路由
 let goodsRouter = require('./goods');
 let regRouter = require('./reg');
+let corsRouter = require('./cors');
+let ProxyRouter = require('./proxy');
 
 // 利用中间件格式化前端传入的参数
 Router.use(express.json(), express.urlencoded({
@@ -33,6 +35,15 @@ Router.get('/jsonp', (req, res) => {
     res.send(`${callback}(${data})`)
 
 });
+
+
+// cors
+Router.use('/cors', corsRouter);
+
+
+
+// 服务器代理
+Router.get('/proxy', ProxyRouter);
 
 
 
