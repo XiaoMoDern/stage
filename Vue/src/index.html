@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #de {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            background: goldenrod;
+        }
+
+        button {
+            font-size: 12px;
+            line-height: 30px;
+            text-align: center;
+            color: #58bc58;
+            position: absolute;
+            bottom: 10px;
+            left: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>vue</h1>
+    <div id="de">
+        <span>{{nav}}</span>
+        <br>
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+        <button v-on:click=''>{{yngdn}}</button>
+    </div>
+    <script src="../src/js/vue.js"></script>
+    <script>
+        /* 
+        1,vue的使用
+         *实例化
+         *配置参数
+         el:vue实例的挂载目标
+         */
+        new Vue({
+            el: "#de",
+            data: {
+                nav: "huhdfd",
+                message: '页面加载于' + new Date().toLocaleString(),
+                yngdn: "点我换颜色",
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

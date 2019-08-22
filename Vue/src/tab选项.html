@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab标签切换</title>
+    <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="../src/js/vue.js"></script>
+    <style>
+        .if {
+
+            width: 700px;
+            height: 500px;
+            background: #ccc;
+            border: 1px solid #585858;
+            margin: 100px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f1f1f1;
+            margin-bottom: 10px;
+        }
+
+        .container-fluid {
+            padding: 40px;
+        }
+
+        .pan {
+            padding: 10px;
+            width: 618px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 105px;
+            height: 150px;
+            float: left;
+        }
+
+        .res {
+            width: 184px;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="if">
+        <h1>tab标签切换</h1>
+        <div id="app">
+            <div class="container-fluid">
+                <ul class="nav nav-pills">
+                    <li role="presentation" v-for="(item,idx) in tabs">
+                        <a href="javascript:;" :class='{active:idx===activeIdx}'
+                            @click="changeIdx(idx,$event)">{{item.name}}</a>
+                    </li>
+                </ul>
+                <div v-for="(item,idx) in tabs" v-show="(idx===activeIdx)" class="pan">
+                    <img :src="item.imgurl" />
+                    <p class="res">
+                        {{item.hobby}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                activeIdx: 0,
+                tabs: [{
+                        name: '曹植',
+                        imgurl: 'img/02.jpg',
+                        hobby: ` 煮豆燃豆萁，豆在釜中泣。
+                                本是同根生， 相煎何太急？
+                                煮豆持作羹， 漉菽以为汁。
+                                萁在釜下燃， 豆在釜中泣。
+                                本自同根生， 相煎何太急？
+                         `
+                    },
+                    {
+                        name: '孟郊',
+                        imgurl: 'img/02.jpg',
+                        hobby: `慈母手中线，游子身上衣。
+                                临行密密缝，意恐迟迟归。
+                                谁言寸草心，报得三春晖。
+                         `
+                    }, {
+                        name: '杜莆',
+                        imgurl: 'img/02.jpg',
+                        hobby: `青青园中葵，朝露待日晞。
+                                阳春布德泽，万物生光辉。
+                                常恐秋节至，焜黄华叶衰。
+                                百川东到海，何时复西归？
+                                少壮不努力，老大徒伤悲。
+                         `
+                    }, {
+                        name: '李白',
+                        imgurl: 'img/02.jpg',
+                        hobby: ` 床前明月光，
+                                疑是地上霜。
+                                举头望明月，
+                                低头思故乡。
+                         `
+                    }, {
+                        name: '杨天辉',
+                        imgurl: 'img/02.jpg',
+                        hobby: ` 三更灯火五更鸡，
+                                正是男儿读书时。
+                                黑发不知勤学早，
+                                白首方悔读书迟。
+                         `
+                    },
+                    {
+                        name: '佚名',
+                        imgurl: 'img/02.jpg',
+                        hobby: ` 青山横北郭， 白水绕东城。
+                                此地一为别， 孤蓬万里征。
+                                浮云游子意， 落日故人情。
+                                挥手自兹去， 萧萧班马鸣。
+                         `
+                    }, {
+                        name: '王维',
+                        imgurl: 'img/02.jpg',
+                        hobby: ` 寒沙四面平，飞雪千里惊。
+                                风断阴山树，雾失交河城。
+                                朝驱左贤阵，夜薄休屠营。
+                                昔事前军幕，今逐嫖姚兵。
+                                失道刑既重，迟留法未轻。
+                                所赖今天子，汉道日休明。
+                         `
+                    }, {
+                        name: '范云',
+                        imgurl: 'img/02.jpg',
+                        hobby: `空山新雨后，天气晚来秋。
+                                明月松间照，清泉石上流。
+                                竹喧归浣女，莲动下渔舟。
+                                随意春芳歇，王孙自可留。
+                         `
+                    }
+                ]
+            },
+            methods: {
+                changeIdx(idx) {
+                    this.activeIdx = idx
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

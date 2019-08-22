@@ -5,7 +5,6 @@ const Router = expres.Router();
 const mysql = require('../db/mysql')
 
 // 商品的增删改查
-
 Router.post('/', (req, res) => {
     // post请求参数：req.body
     let {
