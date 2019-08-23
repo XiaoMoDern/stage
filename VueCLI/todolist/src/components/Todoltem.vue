@@ -1,32 +1,33 @@
 <template>
-    <tr :class="{'table-success':data.done}">
-        <th><input type="checkbox"/></th>
-        <th>{{idx+1}}</th>
-        <td>{{data.content}}</td>
-        <td>{{data.time}}</td>
-        <td>{{data.done?'是':'否'}}</td>
-        <td>
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-outline-success" @click="completeItem(idx)">完成</button>
-                <button type="button" class="btn btn-outline-danger" @click="removeItem(idx)">删除</button>
-            </div>
-        </td>
-    </tr>
+  <tr :class="{'table-success':data.done}">
+    <th>
+      <input type="checkbox" />
+    </th>
+    <th>{{idx+1}}</th>
+    <td>{{data.content}}</td>
+    <td>{{data.time}}</td>
+    <td>{{data.done?'是':'否'}}</td>
+    <td>
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-outline-success" @click="completeItem(idx)">完成</button>
+        <button type="button" class="btn btn-outline-danger" @click="removeItem(idx)">删除</button>
+      </div>
+    </td>
+  </tr>
 </template>
 <script>
-
-import Bus from '../bus.js';
+import Bus from "../bus.js";
 
 export default {
-        props:['data','idx'],
+  props: ["data", "idx"],
 
-        methods: {
-    completeItem(idx){
-        Bus.$emit('complete',idx)
-    }   ,
-    removeItem(idx){
-        Bus.$emit('remove',idx)
+  methods: {
+    completeItem(idx) {
+      Bus.$emit("complete", idx);
+    },
+    removeItem(idx) {
+      Bus.$emit("remove", idx);
     }
-        },
-}
+  }
+};
 </script>
