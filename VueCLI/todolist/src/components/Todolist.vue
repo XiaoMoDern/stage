@@ -10,8 +10,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 // 引入组件
 import TodoForm from "./TodoFrom.vue";
-import TodoContent from "./TodoContent,vue";
-import bus from '../bus.js';
+import TodoContent from "./TodoContent.vue";
+import Bus from '../bus.js';
 // 导出组件
 export default {
   data() {

@@ -15,17 +15,18 @@
 </template>
 <script>
 
-import Bus from '../bus.js'
-export default {
-    props:['data','idx'],
+import Bus from '../bus.js';
 
-    methods: {
- completeItem(idx){
-     Bus.$emit('complete',idx)
- }   ,
- removeItem(idx){
-     Bus.$emit('remove',idx)
- }
-    },
+export default {
+        props:['data','idx'],
+
+        methods: {
+    completeItem(idx){
+        Bus.$emit('complete',idx)
+    }   ,
+    removeItem(idx){
+        Bus.$emit('remove',idx)
+    }
+        },
 }
 </script>
